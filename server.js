@@ -3,15 +3,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-const cmd = require('node-cmd');
+
 // Requires
-const router = require('./controllers/burger_controllers.js');
+// const router = require('./controllers/burger_controllers.js');
 // Create an instance of the express app.
 const app = express();
 // Set the port of our application
 var PORT = process.env.PORT || 1337;
-// get us that sweet schema
-cmd.run('mysql -u root < schema.sql');
 
 // Body parsing middleware for req.body
 app.use(bodyParser.json());

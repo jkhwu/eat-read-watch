@@ -1,4 +1,6 @@
-const Cat = require("model");
+// =============== SETUP ===============
+// Requires
+const Eat = require("eat_model");
 
 module.exports = {
     index: () => { Cat.all() },

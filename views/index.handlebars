@@ -1,0 +1,38 @@
+<h1>Eat List</h1>
+
+{{#each result}}
+<h3>{{ id }}. {{ restaurant_name }}</h3>
+{{/each}}
+
+<h3>Add a Restaurant</h3>
+
+<form action="/restaurant" method="POST">
+  <input type="text" name="newRestaurant" placeholder="restaurant to eat at">
+  <input type="submit" value="Submit">
+</form> 
+
+<h1>Read List</h1>
+
+{{#each result}}
+<h3>{{ id }}. {{ book_name }}</h3>
+{{/each}}
+
+<h3>Add a Book</h3>
+
+<form action="/book" method="POST">
+  <input type="text" name="newBook" placeholder="book to read">
+  <input type="submit" value="Submit">
+</form> 
+
+<h1>Watch List</h1>
+
+{{#each result}}
+<h3>{{ id }}. {{ movie_name }}</h3>
+{{/each}}
+
+<h3>Add a Movie</h3>
+
+<form action="/movie" method="POST">
+  <input type="text" name="newMovie" placeholder="movie to watch">
+  <input type="submit" value="Submit">
+</form> 
