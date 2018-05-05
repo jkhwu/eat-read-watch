@@ -11,7 +11,7 @@ const log = console.log;
 // =============== Object Relational Mapping ===============
 
 module.exports = {
-    // orm = { // test
+    // test = {
     selectAll: (table) => {
         log('SELECT THIS TABLE: ' + table)
         let queryString = 'SELECT * FROM ??';
@@ -33,13 +33,13 @@ module.exports = {
         connection.query(queryString, [table, column, value], function(err, data) {
             if (err) throw err;
             log(data);
-            // return new Promise((resolve, reject) => {
-            //     if (err) {
-            //         reject(err)
-            //     } else {
-            //         resolve(data)
-            //     }
-            // });
+        });
+    },
+    selectWhere: (table, column, value) => {
+        let queryString = 'SELECT * FROM ?? WHERE ?? = ?'
+        connection.query(queryString, [table, column, value], function(err, data) {
+            if (err) throw err;
+            log(data);
         });
     },
     updateOne: (table, column, newValue, id) => {
@@ -48,21 +48,24 @@ module.exports = {
         connection.query(queryString, [table, column, newValue, id], function(err, data) {
             if (err) throw err;
             log(data);
-            // return new Promise((resolve, reject) => {
-            //     if (err) {
-            //         reject(err)
-            //     } else {
-            //         resolve(data)
-            //     }
-            // });
         });
-    }
+    },
+    deleteById: (table, id) => {
+        log('DELETE ENTRY: ' + id);
+        let queryString = 'DELETE FROM ?? WHERE id = ?';
+        connection.query(queryString, [table, id], function(err, data) {
+            if (err) throw err;
+            log(data);
+        });
+    },
 }
 
 // =============== TEST CODE ===============
 // log(connection); // works 
 // require('./connection.js').seedData(); // works 
-// orm.insertOne('eat', 'restaurant_name', 'In-N-Out'); // works
-// orm.selectAll('eat'); // works
-// orm.updateOne('eat', 'restaurant_name', 'Black Angus', '5'); // works
-// orm.selectAll('eat'); // works
+// test.insertOne('eat', 'restaurant_name', 'In-N-Out'); // works
+// test.selectAll('eat'); // works
+// test.updateOne('eat', 'restaurant_name', 'Black Angus', '5'); // works
+// test.selectWhere('eat', 'id', '5'); // works
+// test.selectAll('eat'); // works
+// test.deleteById('eat', 7); // works

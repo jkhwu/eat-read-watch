@@ -5,7 +5,7 @@ const cmd = require('node-cmd');
 
 // Methods to Export
 module.exports = {
-    // con = { //test
+    // test = { 
     connection: mysql.createConnection({
         host: "localhost",
         user: "root",
@@ -31,3 +31,5 @@ module.exports = {
 
 
 // =============== TEST CODE ===============
+// log(test.connection);
+// test.seedData();
