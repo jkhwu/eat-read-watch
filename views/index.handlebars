@@ -1,5 +1,12 @@
 <h1>Eat List</h1>
 
+<h3>To Eat</h3>
+{{#each result}}
+<h3>{{ id }}. {{ restaurant_name }}</h3>
+{{/each}}
+
+<h3>Eaten</h3>
+
 {{#each result}}
 <h3>{{ id }}. {{ restaurant_name }}</h3>
 {{/each}}
@@ -11,7 +18,7 @@
   <input type="submit" value="Submit">
 </form> 
 
-<h1>Read List</h1>
+{{!-- <h1>Read List</h1>
 
 {{#each result}}
 <h3>{{ id }}. {{ book_name }}</h3>
@@ -35,4 +42,4 @@
 <form action="/movie" method="POST">
   <input type="text" name="newMovie" placeholder="movie to watch">
   <input type="submit" value="Submit">
-</form> 
+</form>  --}}

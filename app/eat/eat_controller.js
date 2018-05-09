@@ -1,23 +1,18 @@
-// =============== SETUP ===============
-// Requires
-const Eat = require('./eat_model.js');
+const model = require('./eat_model.js');
 
-// Other
-const log = console.log;
-
-module.exports = {
-    // test = {
-    index: () => Eat.selectAll(),
-    create: (restaurant) => Eat.addEat(restaurant),
-    read: (id) => Eat.getById(id),
-    update: (id, restaurant) => Eat.changeRestaurant(id, restaurant),
-    delete: (id) => Eat.deleteRestaurant(id),
+const eat = {
+    selectAll: (cb) => model.selectAll(cb),
+    selectWhere: (id, cb) => model.selectWhere(id, cb),
+    insertOne: (restaurant, cb) => model.insertOne(restaurant, cb),
+    updateOne: (column, newValue, id, cb) => model.updateOne(column, newValue, id, cb),
+    deleteOne: (id, cb) => model.deleteOne(id, cb),
 }
 
+module.exports = eat;
+
 // =============== TEST CODE ===============
-// log(Eat); // works
-// test.index(); // works
-// test.create('Applebees'); // works
-// test.read(3); // works
-// test.update(6, 'Little Caesars'); // works
-// test.delete(5) // works
+// eat.insertOne('CPK', console.log);
+// eat.updateOne('eaten', 0, 4, console.log);
+// eat.selectWhere(4, console.log);
+// eat.deleteOne(13, console.log);
+// eat.selectAll(console.log);

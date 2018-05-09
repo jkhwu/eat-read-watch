@@ -1,35 +1,32 @@
-// =============== SETUP ===============
-// Dependencies
 const mysql = require('mysql');
-const cmd = require('node-cmd');
 
-// Methods to Export
-module.exports = {
-    // test = { 
-    connection: mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "eatReadWatch_db"
-    }),
-    seedData: () => {
-        cmd.get(
-            `
-                mysql -u root < ../db/schema.sql
-                mysql -u root < ../db/seeds.sql
-            `,
-            function(data, err, stderr) {
-                if (!err) {
-                    console.log('created and seeded database :\n\n', data)
-                } else {
-                    console.log('error', err)
-                }
-            }
-        );
-    }
+// Create the MySQL connection object
+let connection;
+
+if (process.env.JAWSDB_URL) {
+    // DB is JawsDB on Heroku
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    // DB is local on localhost
+    connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'eatReadWatch_db'
+    })
 }
 
+// Make the connection to MySQL
+connection.connect(function(err) {
+    if (err) {
+        console.error('\nERROR: MySQL connection error -- ' + err.stack);
+        return;
+    }
+    console.log('\nConnected to MySQL database as id ' + connection.threadId);
+});
+
+// Export
+module.exports = connection;
 
 // =============== TEST CODE ===============
-// log(test.connection);
-// test.seedData();
+// console.log(connection);

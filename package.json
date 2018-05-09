@@ -1,27 +1,30 @@
 {
-  "name": "eat-read-watch",
-  "version": "1.0.0",
-  "description": "an app that keeps track of my lists for restaurants to check out, books to read, movies/shows to watch",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jkhwu/eat-read-watch.git"
-  },
-  "author": "jkhwu",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jkhwu/eat-read-watch/issues"
-  },
-  "homepage": "https://github.com/jkhwu/eat-read-watch#readme",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "mysql": "^2.15.0",
-    "node-cmd": "^3.0.0",
-    "orm": "^4.0.2"
-  }
+    "name": "eat-read-watch",
+    "version": "1.0.0",
+    "description": "an app that keeps track of my lists for restaurants to check out, books to read, movies/shows to watch",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "db-create": "mysql -u root < app/db/schema.sql",
+        "db-seed": "mysql -u root < app/db/seeds.sql",
+        "db-setup": "npm run db-create; npm run db-seed"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jkhwu/eat-read-watch.git"
+    },
+    "author": "jkhwu",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jkhwu/eat-read-watch/issues"
+    },
+    "homepage": "https://github.com/jkhwu/eat-read-watch#readme",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.3",
+        "express-handlebars": "^3.0.0",
+        "method-override": "^2.3.10",
+        "mysql": "^2.15.0",
+        "orm": "^4.0.2"
+    }
 }
