@@ -1,45 +1,134 @@
-<h1>Eat List</h1>
+{{!-- Forms --}}
 
-<h3>To Eat</h3>
-{{#each result}}
-<h3>{{ id }}. {{ restaurant_name }}</h3>
-{{/each}}
+<div class="row"> 
 
-<h3>Eaten</h3>
+  <div class="col s4">
+    <form action="/eats" method="POST">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" id="restaurantName" name="restaurant_name" placeholder="Add a Restaurant" data-length="10">
+          </div>
+        </div>
+        <div class="row center">
+          <button type="submit" id="addEatBtn" class="btn-floating btn-small waves-effect waves-light deep-purple accent-3"><i class="material-icons">add</i></button>
+        </div>
+    </form>
+  </div>
 
-{{#each result}}
-<h3>{{ id }}. {{ restaurant_name }}</h3>
-{{/each}}
+  <div class="col s4">
+    <form action="/reads" method="POST">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" id="bookName" name="book_name" placeholder="Add a Book" data-length="10">
+          </div>
+        </div>
+        <div class="row center">
+          <button type="submit" id="addEatBtn" class="btn-floating btn-small waves-effect waves-light blue accent-3"><i class="material-icons">add</i></button>
+        </div>
+    </form>
+  </div>
 
-<h3>Add a Restaurant</h3>
+  <div class="col s4">
+    <form action="/watches" method="POST">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" id="movieName" name="movie_name" placeholder="Add a Movie" data-length="10">
+          </div>
+        </div>
+        <div class="row center">
+          <button type="submit" id="addEatBtn" class="btn-floating btn-small waves-effect waves-light cyan accent-4"><i class="material-icons">add</i></button>
+        </div>
+    </form>
+  </div>
 
-<form action="/restaurant" method="POST">
-  <input type="text" name="newRestaurant" placeholder="restaurant to eat at">
-  <input type="submit" value="Submit">
-</form> 
+</div>
 
-{{!-- <h1>Read List</h1>
+{{!-- Button Lists --}}
 
-{{#each result}}
-<h3>{{ id }}. {{ book_name }}</h3>
-{{/each}}
+<div class="row">
 
-<h3>Add a Book</h3>
+  <div class="col s4">
 
-<form action="/book" method="POST">
-  <input type="text" name="newBook" placeholder="book to read">
-  <input type="submit" value="Submit">
-</form> 
+    {{#each restaurants}}
+      {{#unless this.eaten}}
+          <form action="/eats/{{this.id}}?_method=PUT" method="POST">
+            <button class="notEaten tooltip waves-effect waves-light btn" type="submit"> 
+              {{this.restaurant_name}}
+              <span class="tooltiptext"><i class="tiny material-icons">check</i></span>
+            </button>
+          </form>
+      {{/unless}}
+    {{/each}}
 
-<h1>Watch List</h1>
+    {{#each restaurants}}
+      {{#if this.eaten}}
+        <div>
+          <form action="/eats/{{this.id}}?_method=DELETE" method="POST">
+            <button class="eaten tooltip waves-effect waves-light btn" type="submit"> 
+              {{this.restaurant_name}}
+              <span class="tooltiptext"><i class="tiny material-icons">clear</i></span>
+            </button>
+          </form>
+        </div>
+      {{/if}}
+    {{/each}}
 
-{{#each result}}
-<h3>{{ id }}. {{ movie_name }}</h3>
-{{/each}}
+  </div>
 
-<h3>Add a Movie</h3>
+  <div class="col s4">
 
-<form action="/movie" method="POST">
-  <input type="text" name="newMovie" placeholder="movie to watch">
-  <input type="submit" value="Submit">
-</form>  --}}
+    {{#each books}}
+      {{#unless this.readed}}
+          <form action="/reads/{{this.id}}?_method=PUT" method="POST">
+            <button class="notReaded tooltip waves-effect waves-light btn" type="submit"> 
+              {{this.book_name}}
+              <span class="tooltiptext"><i class="tiny material-icons">check</i></span>
+            </button>
+          </form>
+      {{/unless}}
+    {{/each}}
+
+    {{#each books}}
+      {{#if this.readed}}
+        <div>
+          <form action="/reads/{{this.id}}?_method=DELETE" method="POST">
+            <button class="readed tooltip waves-effect waves-light btn" type="submit"> 
+              {{this.book_name}}
+              <span class="tooltiptext"><i class="tiny material-icons">clear</i></span>
+            </button>
+          </form>
+        </div>
+      {{/if}}
+    {{/each}}
+
+  </div>
+
+  <div class="col s4">
+
+    {{#each movies}}
+      {{#unless this.watched}}
+          <form action="/watches/{{this.id}}?_method=PUT" method="POST">
+            <button class="notWatched tooltip waves-effect waves-light btn" type="submit"> 
+              {{this.movie_name}}
+              <span class="tooltiptext"><i class="tiny material-icons">check</i></span>
+            </button>
+          </form>
+      {{/unless}}
+    {{/each}}
+
+    {{#each movies}}
+      {{#if this.watched}}
+        <div>
+          <form action="/watches/{{this.id}}?_method=DELETE" method="POST">
+            <button class="watched tooltip waves-effect waves-light btn" type="submit"> 
+              {{this.movie_name}}
+              <span class="tooltiptext"><i class="tiny material-icons">clear</i></span>
+            </button>
+          </form>
+        </div>
+      {{/if}}
+    {{/each}}
+
+  </div>
+
+</div>

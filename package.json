@@ -7,7 +7,9 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "db-create": "mysql -u root < app/db/schema.sql",
         "db-seed": "mysql -u root < app/db/seeds.sql",
-        "db-setup": "npm run db-create; npm run db-seed"
+        "db-delete": "mysqladmin -uroot drop eatReadWatch_db",
+        "db-setup": "npm run db-create; npm run db-seed",
+        "db-reset": "npm run db-delete; npm run db-setup"
     },
     "repository": {
         "type": "git",

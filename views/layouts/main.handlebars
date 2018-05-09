@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<!-- Materialize CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png"/>
 	<title>Eat Read Watch</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col s4">
-                <i class="large material-icons">local_dining</i>
-            </div>
-            <div class="col s4">
-                <i class="large material-icons">local_library</i>
-            </div>
-            <div class="col s4">
-                <i class="large material-icons">local_movies</i>
-            </div>
-        </div>
-
-	    {{{ body }}}
-
-        <footer class="myFooter">
-            <div class="footer-copyright">
-                <div class="container">
-                    <span class="grey-text text-lighten-4">© 2018 jkhwu</span>
-                    <a class="grey-text text-lighten-4 right" href="https://github.com/jkhwu/eat-read-watch">Github</a>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col s4 center">
+                    <i class="large material-icons deep-purple-text text-accent-3">local_dining</i>
+                </div>
+                <div class="col s4 center">
+                    <i class="large material-icons blue-text text-accent-3">local_library</i>
+                </div>
+                <div class="col s4 center">
+                    <i class="large material-icons cyan-text text-accent-4">local_movies</i>
                 </div>
             </div>
-        </footer>
-    </div>
+
+	        {{{ body }}} 
+        </div>
+    </main>
+    
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 jkhwu
+                <a class="grey-text text-lighten-4 right" href="https://github.com/jkhwu/eat-read-watch">Github</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </body>
 </html>

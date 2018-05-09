@@ -9,3 +9,19 @@ CREATE TABLE eat (
     eaten BOOLEAN NOT NULL default 0,
     PRIMARY KEY (id)
 );
+
+DROP TABLE IF EXISTS readr;
+CREATE TABLE readr (
+    id INT(10) NOT NULL AUTO_INCREMENT,
+    book_name VARCHAR(100) NOT NULL,
+    readed BOOLEAN NOT NULL default 0,
+    PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS watch;
+CREATE TABLE watch (
+    id INT(10) NOT NULL AUTO_INCREMENT,
+    movie_name VARCHAR(100) NOT NULL,
+    watched BOOLEAN NOT NULL default 0,
+    PRIMARY KEY (id)
+);

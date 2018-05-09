@@ -1,0 +1,88 @@
+body {
+    padding-top: 50px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.btn-floating {
+    /* margin-top: 25px; */
+    padding: 0;
+}
+
+.page-footer {
+    background-color: black;
+    padding-top: 0;
+}
+
+.notEaten,
+.eaten,
+.readed,
+.notReaded,
+.watched,
+.notWatched {
+    margin: 5px;
+    padding: 0 40px;
+}
+
+.notEaten {
+    background-color: #651fff;
+}
+
+.eaten {
+    background-color: #d1c4e9;
+}
+
+.notReaded {
+    background-color: #2979ff;
+}
+
+.readed {
+    background-color: #bbdefb;
+}
+
+.notWatched {
+    background-color: #00b8d4;
+}
+
+.watched {
+    background-color: #b2ebf2;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    /* width: 20px; */
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 1px 5px;
+    /* Position the tooltip */
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.col .row,
+.input-field {
+    margin-bottom: 5px;
+}
+
+
+/* .input-field input[type=text]:focus {
+    border-bottom: 1px solid #651fff!important;
+    box-shadow: 0 1px 0 0 #651fff!important;
+} */
