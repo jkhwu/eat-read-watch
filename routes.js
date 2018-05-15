@@ -29,7 +29,11 @@ router.get('/', (req, res) => {
 
 // Eat Routes
 router.post('/eats', (req, res) => {
-    eat.insertOne(req.body.restaurant_name, (data) => res.redirect('/'));
+    if (req.body.restaurant_name !== '') {
+        eat.insertOne(req.body.restaurant_name, (data) => res.redirect('/'));
+    } else {
+        res.redirect('/');
+    }
 });
 router.put('/eats/:id', (req, res) => {
     eat.updateOne('eaten', 1, req.params.id, (data) => res.redirect('/'));
@@ -40,7 +44,11 @@ router.delete('/eats/:id', (req, res) => {
 
 // Read Routes
 router.post('/reads', (req, res) => {
-    read.insertOne(req.body.book_name, (data) => res.redirect('/'));
+    if (req.body.book_name !== '') {
+        read.insertOne(req.body.book_name, (data) => res.redirect('/'));
+    } else {
+        res.redirect('/');
+    }
 });
 router.put('/reads/:id', (req, res) => {
     read.updateOne('readed', 1, req.params.id, (data) => res.redirect('/'));
@@ -51,7 +59,11 @@ router.delete('/reads/:id', (req, res) => {
 
 // Watch Routes
 router.post('/watches', (req, res) => {
-    watch.insertOne(req.body.movie_name, (data) => res.redirect('/'));
+    if (req.body.movie_name !== '') {
+        watch.insertOne(req.body.movie_name, (data) => res.redirect('/'));
+    } else {
+        res.redirect('/');
+    }
 });
 router.put('/watches/:id', (req, res) => {
     watch.updateOne('watched', 1, req.params.id, (data) => res.redirect('/'));
